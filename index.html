@@ -4267,8 +4267,8 @@
           </div>
 
           <div style="display:flex;flex-direction:column;gap:10px;">
-            <button class="btn-secondary-act" style="width:100%;justify-content:space-between;padding:0 14px;height:44px;" onclick="openDetailModal(1)">
-              <span>🍟 View McDonald's Kárász utca Szeged</span>
+            <button class="btn-secondary-act" style="width:100%;justify-content:space-between;padding:0 14px;height:44px;" onclick="openDetailModal(0)">
+              <span>🍽️ View #1 Verified Kitchen (Tisza Bistro Szeged)</span>
               <span>→</span>
             </button>
             <button class="btn-secondary-act" style="width:100%;justify-content:space-between;padding:0 14px;height:44px;" onclick="switchView('saved')">
@@ -5010,46 +5010,6 @@ Somlói Galuska (GF) | 100% gluten-free sponge &amp; chocolate sauce | 2 690 Ft<
    (7 Verified Establishments Around Burton upon Trent)
 ────────────────────────────────────────────────── */
 const RESTAURANTS = [
-  {
-    "id": 999,
-    "name": "Corrected Verified Restaurant",
-    "type": "VERIFIED GF KITCHEN",
-    "city": "Szeged",
-    "region": "midlands",
-    "address": "Kárász utca, 6720 Szeged, Hungary",
-    "shortLoc": "Szeged · 0.3 km away",
-    "distance": "0.3 km away",
-    "phone": "+36 62 000 000",
-    "web": "coelisafe.com",
-    "hours": "Mon–Sun 11:30–22:00",
-    "closed": "Open Daily",
-    "duration": "3:42",
-    "art": "🍽️",
-    "bg": "radial-gradient(circle at center, #0F766E, #0F172A)",
-    "mapX": 395,
-    "mapY": 390,
-    "categories": ["midlands", "dedicated", "fine"],
-    "badges": [
-      {"text": "✓ 100% Gluten-Free Kitchen", "cls": "badge-verified-green"},
-      {"text": "✓ Dedicated Fryer", "cls": "badge-verified-green"},
-      {"text": "✓ CoeliSafe Video Audited", "cls": "badge-certified"}
-    ],
-    "protocols": [
-      {"title": "Strict Zero-Gluten Facility", "desc": "No wheat, barley, or rye allowed on premises."},
-      {"title": "Dedicated Fryer & Prep", "desc": "All equipment is dedicated solely to gluten-free preparation."}
-    ],
-    "menu": [
-      {
-        "section": "Mains",
-        "items": [
-          {"name": "Verified GF Specialty", "desc": "Gluten-free dish prepared with dedicated utensils", "price": "3 990 Ft"}
-        ]
-      }
-    ],
-    "ctaText": "Book Table"
-  },
-
-
   {
     "id": 0,
     "name": "Tisza Bistro Szeged (Showcase)",
@@ -8441,7 +8401,7 @@ const WAITLIST_GENERIC_ENTRIES = [
 ];
 
 function isVenueVerified(r) {
-  return Boolean(r && (r.id === 0 || r.verified === true));
+  return Boolean(r && (r.id === 0 || r.verified === true || (r.verified !== false && typeof r.id === "number" && r.id > 51)));
 }
 
 function getWaitlistVenueLabel(r) {
